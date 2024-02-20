@@ -15,6 +15,11 @@ pipeline {
         sh 'npm install'
       }
     }
+        stage('download dependencies') {
+          steps {
+            sh 'npm audit fix --force'
+          }
+        }
 
 //     stage('Check linting') {
 //       steps {
