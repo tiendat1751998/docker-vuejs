@@ -14,11 +14,11 @@ pipeline {
       }
     }
 
-//     stage('Check linting') {
-//       steps {
-//         sh 'npm run lint'
-//       }
-//     }
+    stage('Check linting') {
+      steps {
+        sh 'npm run lint'
+      }
+    }
 
 //     stage('Check unit:test') {
 //       steps {
