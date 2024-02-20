@@ -1,8 +1,5 @@
 pipeline {
   agent any
-  checkout scmGit(
-      branches: [[name: 'master']],
-      userRemoteConfigs: [[url: 'https://github.com/tiendat1751998/docker-vuejs.git']])
   stages {
 //     stage('Check for vulnerabilities') {
 //       steps {
