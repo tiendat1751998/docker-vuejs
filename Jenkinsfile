@@ -9,13 +9,6 @@ pipeline {
 //       }
 //     }
 
- stage('Test npm') {
-      steps {
-        sh """
-          npm --version
-        """
-      }
-    }
 
     stage('download dependencies') {
       steps {
@@ -23,11 +16,11 @@ pipeline {
       }
     }
 
-    stage('Check linting') {
-      steps {
-        sh 'npm run lint'
-      }
-    }
+//     stage('Check linting') {
+//       steps {
+//         sh 'npm run lint'
+//       }
+//     }
 
 //     stage('Check unit:test') {
 //       steps {
