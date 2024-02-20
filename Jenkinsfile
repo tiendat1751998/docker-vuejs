@@ -18,12 +18,17 @@ pipeline {
             sh 'npm install --global vue-cli'
           }
         }
-
+ stage('download inconfy') {
+          steps {
+            sh 'npm install @inconfy'
+          }
+        }
     stage('download dependencies') {
       steps {
         sh 'npm install'
       }
     }
+
 
     stage('audit fix') {
       steps {
