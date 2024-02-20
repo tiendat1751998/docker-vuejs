@@ -18,23 +18,23 @@ pipeline {
             sh 'npm install --global vue-cli'
           }
         }
- stage('download inconfy') {
-          steps {
-            sh 'npm install @inconfy'
-          }
-        }
+
     stage('download dependencies') {
       steps {
         sh 'npm install'
       }
     }
+ stage('download inconfy') {
+          steps {
+            sh 'npm rebuild node-sass'
+          }
+        }
 
-
-    stage('audit fix') {
-      steps {
-        sh 'npm audit fix'
-      }
-    }
+//     stage('audit fix') {
+//       steps {
+//         sh 'npm audit fix'
+//       }
+//     }
 
 //     stage('Check linting') {
 //       steps {
