@@ -15,7 +15,7 @@ pipeline {
 //     }
       stage(' update npm') {
           steps {
-            sh 'npm install --global npm'
+            sh 'npm --version'
           }
         }
 
