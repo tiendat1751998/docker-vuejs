@@ -13,7 +13,7 @@ pipeline {
             sh 'npm rebuild node-sass'
           }
         }
-    stage('Check linting') {
+    stage('Check lint') {
       steps {
         sh 'npm run lint'
       }
