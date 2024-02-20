@@ -32,7 +32,7 @@ pipeline {
       }
     }
 
-     stage('build icon') {
+     stage('run dev') {
       steps {
         sh 'npm run dev'
       }
