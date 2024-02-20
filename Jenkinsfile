@@ -7,6 +7,13 @@ pipeline {
 //         sh 'npm outdated || exit 0'
 //       }
 //     }
+ stage('Test npm') {
+      steps {
+        sh """
+          npm --version
+        """
+      }
+    }
 
     stage('download dependencies') {
       steps {
