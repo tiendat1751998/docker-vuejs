@@ -18,7 +18,7 @@ pipeline {
 
     stage('audit fix') {
       steps {
-        sh 'npm audit fix --force'
+        sh 'npm audit fix'
       }
     }
 
