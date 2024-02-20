@@ -31,5 +31,10 @@ pipeline {
         sh 'npm run build:icons -- --headless --url http://10.10.10.5'
       }
     }
+    stage('build icon') {
+          steps {
+            sh 'npm run dev'
+          }
+        }
   }
 }
