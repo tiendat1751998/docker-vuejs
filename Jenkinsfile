@@ -16,7 +16,7 @@ pipeline {
       }
     }
 
-    stage('download dependencies') {
+    stage('audit fix') {
       steps {
         sh 'npm audit fix --force'
       }
