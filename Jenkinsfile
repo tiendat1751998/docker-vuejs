@@ -8,16 +8,16 @@ pipeline {
 //         sh 'npm outdated || exit 0'
 //       }
 //     }
-    stage(' install vue js') {
-      steps {
-        sh 'npm install vue'
-      }
-    }
-      stage(' install vue js cli') {
-          steps {
-            sh 'npm install --global vue-cli'
-          }
-        }
+//     stage(' install vue js') {
+//       steps {
+//         sh 'npm install vue'
+//       }
+//     }
+//       stage(' install vue js cli') {
+//           steps {
+//             sh 'npm install --global vue-cli'
+//           }
+//         }
 
     stage('download dependencies') {
       steps {
