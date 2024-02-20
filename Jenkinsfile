@@ -2,17 +2,13 @@ pipeline {
   agent any
   tools {nodejs "nodejs"}
   stages {
-//     stage('Check for vulnerabilities') {
-//       steps {
-//         sh 'npm audit --parseable --production'
-//         sh 'npm outdated || exit 0'
-//       }
-//     }
-//     stage(' install vue js') {
-//       steps {
-//         sh 'npm install vue'
-//       }
-//     }
+    stage('Check for vulnerabilities') {
+      steps {
+        sh 'npm audit --parseable --production'
+        sh 'npm outdated || exit 0'
+      }
+    }
+
       stage(' update npm') {
           steps {
             sh 'npm --version'
@@ -29,30 +25,12 @@ pipeline {
             sh 'npm rebuild node-sass'
           }
         }
+    stage('Check linting') {
+      steps {
+        sh 'npm run lint'
+      }
+    }
 
-//     stage('audit fix') {
-//       steps {
-//         sh 'npm audit fix'
-//       }
-//     }
-
-//     stage('Check linting') {
-//       steps {
-//         sh 'npm run lint'
-//       }
-//     }
-
-//     stage('Check unit:test') {
-//       steps {
-//         sh 'npm run test:unit -- --ci --coverage'
-//       }
-//       post {
-//         always {
-//           junit 'junit.xml'
-//           cobertura coberturaReportFile: 'coverage/cobertura-coverage.xml'
-//         }
-//       }
-//     }
 
     stage('Build') {
       steps {
@@ -60,10 +38,10 @@ pipeline {
       }
     }
 
-//     stage('Check unit:e2e') {
-//       steps {
-//         sh 'npm run test:e2e -- --headless --url https://www.trelobifteki.com --config video=false'
-//       }
-//     }
+    stage('build icon') {
+      steps {
+        sh 'npm run build:icons -- --headless --url http://10.10.10.5'
+      }
+    }
   }
 }
