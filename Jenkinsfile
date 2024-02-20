@@ -2,18 +2,6 @@ pipeline {
   agent any
   tools {nodejs "nodejs"}
   stages {
-//     stage('Check for vulnerabilities') {
-//       steps {
-//         sh 'npm audit --parseable --production'
-//         sh 'npm outdated || exit 0'
-//       }
-//     }
-
-      stage(' update npm') {
-          steps {
-            sh 'npm --version'
-          }
-        }
 
     stage('download dependencies') {
       steps {
