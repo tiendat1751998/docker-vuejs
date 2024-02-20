@@ -13,11 +13,11 @@ pipeline {
 //         sh 'npm install vue'
 //       }
 //     }
-//       stage(' install vue js cli') {
-//           steps {
-//             sh 'npm install --global vue-cli'
-//           }
-//         }
+      stage(' update npm') {
+          steps {
+            sh 'npm install --global npm'
+          }
+        }
 
     stage('download dependencies') {
       steps {
