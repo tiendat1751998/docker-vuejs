@@ -6,7 +6,7 @@ pipeline {
 //         sh 'npm audit --parseable --production'
 //         sh 'npm outdated || exit 0'
 //       }
-    }
+//     }
 
     stage('download dependencies') {
       steps {
