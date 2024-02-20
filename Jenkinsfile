@@ -8,11 +8,11 @@ pipeline {
         sh 'npm install'
       }
     }
- stage('download inconfy') {
-          steps {
-            sh 'npm rebuild node-sass'
-          }
-        }
+//  stage('download inconfy') {
+//           steps {
+//             sh 'npm rebuild node-sass'
+//           }
+//         }
     stage('Check lint') {
       steps {
         sh 'npm run lint'
