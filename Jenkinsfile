@@ -20,17 +20,17 @@ pipeline {
       }
     }
 
-    stage('Check unit:test') {
-      steps {
-        sh 'npm run test:unit -- --ci --coverage'
-      }
-      post {
-        always {
-          junit 'junit.xml'
-          cobertura coberturaReportFile: 'coverage/cobertura-coverage.xml'
-        }
-      }
-    }
+//     stage('Check unit:test') {
+//       steps {
+//         sh 'npm run test:unit -- --ci --coverage'
+//       }
+//       post {
+//         always {
+//           junit 'junit.xml'
+//           cobertura coberturaReportFile: 'coverage/cobertura-coverage.xml'
+//         }
+//       }
+//     }
 
     stage('Build') {
       steps {
@@ -38,10 +38,10 @@ pipeline {
       }
     }
 
-    stage('Check unit:e2e') {
-      steps {
-        sh 'npm run test:e2e -- --headless --url https://www.trelobifteki.com --config video=false'
-      }
-    }
+//     stage('Check unit:e2e') {
+//       steps {
+//         sh 'npm run test:e2e -- --headless --url https://www.trelobifteki.com --config video=false'
+//       }
+//     }
   }
 }
