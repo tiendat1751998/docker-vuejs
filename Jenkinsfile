@@ -2,8 +2,9 @@ pipeline {
   agent any
   tools {nodejs "nodejs"}
   environment {
+      TAG = '1.2'
       DEPLOYMENT_NAME = 'vuejs-admin'
-      DOCKER_IMAGE = "dotiendat1751998/vuejs-admin:1.1"
+      DOCKER_IMAGE = "dotiendat1751998/vuejs-admin:${TAG}"
       DOCKER_FILE = './Dockerfile'
       DOCKER_COMPOSE = 'docker-compose-vue.yml'
 
@@ -68,7 +69,9 @@ pipeline {
                 passwordVariable: 'PASSWORD'
               )]) {
                 sh "ssh ${USERSNAME}@10.10.10.5"
-                sh "docker compose -f ${DOCKER_COMPOSE} up -d"
+                sh 'docker stop vuejs-admin'
+                sh 'docker rm vuejs-admin'
+                sh 'docker-compose -f ${DOCKER_COMPOSE} up -d'
                 echo "connected "
               }
             }
