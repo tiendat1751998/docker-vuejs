@@ -68,7 +68,7 @@ pipeline {
                 passwordVariable: 'PASSWORD'
               )]) {
                 sh "ssh ${USERSNAME}@10.10.10.5"
-                echo "ssh done "
+                echo "connected "
               }
             }
 
