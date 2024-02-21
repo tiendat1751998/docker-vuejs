@@ -34,7 +34,8 @@ pipeline {
                 usernameVariable: 'DOCKERHUB_USERNAME',
                 passwordVariable: 'DOCKERHUB_PASSWORD'
               )]) {
-                sh "docker login https://login.docker.com/u/login/password?state=hKFo2SBMRThpT191VDdCbkVJVHZKMmUyUEhTM25SU0wzRHJaSqFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIGM5T3RQdUJJVk54bTdLSGhBSFo2cEVnYTdBbUNHWDZ5o2NpZNkgbHZlOUdHbDhKdFNVcm5lUTFFVnVDMGxiakhkaTluYjk -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}"
+                sh "echo $DOCKERHUB_PASSWORD"
+                sh "docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}"
               }
             }
           }
