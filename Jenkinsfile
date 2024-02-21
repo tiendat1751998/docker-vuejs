@@ -6,7 +6,7 @@ pipeline {
       DEPLOYMENT_NAME = 'vuejs-admin'
       DOCKER_IMAGE = "dotiendat1751998/vuejs-admin:${TAG}"
       DOCKER_FILE = './Dockerfile'
-      DOCKER_COMPOSE = 'docker-compose-vue.yml'
+      DOCKER_COMPOSE = './docker-compose-vue.yml'
 
     }
   stages {
@@ -57,27 +57,36 @@ pipeline {
              echo 'push Done..'
            }
          }
-    stage('Deploy') {
-      steps {
-        echo 'Next Deploy job run..'
-//         sh 'docker compose -f ${DOCKER_COMPOSE} -H "ssh://root@10.10.10.5" up -d  '
-         script {
-              // Login to Docker Hub using Jenkins global credentials
-              withCredentials([usernamePassword(
-                credentialsId: '4a2e4ceb-1dbe-42d2-aefc-bfc4a4415477', // Use the Global credentials ID
-                usernameVariable: 'USERSNAME',
-                passwordVariable: 'PASSWORD'
-              )]) {
-                sh "ssh ${USERSNAME}@10.10.10.5"
-                sh 'docker stop vuejs-admin'
-                sh 'docker rm vuejs-admin'
-                sh 'docker-compose -f ${DOCKER_COMPOSE} up -d'
-                echo "connected "
-              }
+    stage('Deploy docker') {
+            steps {
+            sh "ssh root@10.10.10.5"
+            sh 'docker stop vuejs-admin'
+            sh 'docker rm vuejs-admin'
+            sh 'docker compose -f ${DOCKER_COMPOSE} up -d'
+            echo "connected "
             }
-
-      }
-    }
+          }
+//     stage('Deploy') {
+//       steps {
+//         echo 'Next Deploy job run..'
+// //         sh 'docker compose -f ${DOCKER_COMPOSE} -H "ssh://root@10.10.10.5" up -d  '
+//          script {
+//               // Login to Docker Hub using Jenkins global credentials
+//               withCredentials([usernamePassword(
+//                 credentialsId: '4a2e4ceb-1dbe-42d2-aefc-bfc4a4415477', // Use the Global credentials ID
+//                 usernameVariable: 'USERSNAME',
+//                 passwordVariable: 'PASSWORD'
+//               )]) {
+//                 sh "ssh root@10.10.10.5"
+//                 sh 'docker stop vuejs-admin'
+//                 sh 'docker rm vuejs-admin'
+//                 sh 'docker compose -f ${DOCKER_COMPOSE} up -d'
+//                 echo "connected "
+//               }
+//             }
+//
+//       }
+//     }
 
   }
 }
