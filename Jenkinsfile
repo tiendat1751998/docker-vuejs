@@ -5,7 +5,7 @@ pipeline {
       DEPLOYMENT_NAME = 'vuejs-admin'
       DOCKER_IMAGE = "dotiendat1751998/vuejs-admin:1.1"
       DOCKER_FILE = './Dockerfile'
-      DOCKER_COMPOSE = './docker-compose-vue.yml'
+      DOCKER_COMPOSE = 'docker-compose-vue.yml'
 
     }
   stages {
