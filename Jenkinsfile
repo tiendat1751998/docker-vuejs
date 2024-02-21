@@ -43,7 +43,7 @@ pipeline {
     stage('Build docker') {
       steps {
         echo 'Building..'
-        sh "docker build -t ${DOCKER_IMAGE} --security-opt=seccomp=unconfined -f ${DOCKER_FILE} ."
+        sh "docker build -t ${DOCKER_IMAGE} -f ${DOCKER_FILE} ."
 
         echo 'Build Done..'
       }
