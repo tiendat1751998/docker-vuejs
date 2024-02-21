@@ -1,6 +1,11 @@
 pipeline {
   agent any
   tools {nodejs "nodejs"}
+  environment {
+      DEPLOYMENT_NAME = 'vuejs-admin'
+      DOCKER_IMAGE = "dotiendat1751998/vuejs-admin:1.1"
+      DOCKER_FILE = './Dockerfile'
+    }
   stages {
 
     stage('download dependencies') {
@@ -31,13 +36,8 @@ pipeline {
 //         sh 'npm run build:icons -- --headless --url http://10.10.10.5'
 //       }
 //     }
-environment {
-    DEPLOYMENT_NAME = 'vuejs-admin'
-    DOCKER_IMAGE = "dotiendat1751998/vuejs-admin:1.1"
-    DOCKER_FILE = './Dockerfile'
-  }
-  stages {
-    stage('Login') {
+
+stage('Login') {
       steps {
         script {
           // Login to Docker Hub using Jenkins global credentials
@@ -64,5 +64,6 @@ environment {
         echo 'Next Deploy job run..'
       }
     }
+
   }
 }
