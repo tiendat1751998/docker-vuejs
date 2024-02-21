@@ -60,7 +60,7 @@ pipeline {
       steps {
         echo 'Next Deploy job run...'
 //         sh 'docker compose -f ${DOCKER_COMPOSE} -H "ssh://root@10.10.10.5" up -d  '
-        [$class: 'DockerComposeBuilder', dockerComposeFile: '${DOCKER_COMPOSE}', option: [$class:'StartService',scale:1,service:'vuejs'],useCustomDockerComposeFile: true]
+        $class: 'DockerComposeBuilder', dockerComposeFile: '${DOCKER_COMPOSE}', option: [$class:'StartService',scale:1,service:'vuejs'],useCustomDockerComposeFile: true
       }
     }
 
