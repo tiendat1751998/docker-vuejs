@@ -43,10 +43,18 @@ pipeline {
       steps {
         echo 'Building..'
         sh "docker build -t ${DOCKER_IMAGE} --security-opt=seccomp=unconfined -f ${DOCKER_FILE} ."
-        sh 'docker push ${DOCKER_IMAGE}'
+
         echo 'Build Done..'
       }
     }
+    stage('push docker') {
+           steps {
+             echo 'push..'
+             sh " docker push ${DOCKER_IMAGE}"
+
+             echo 'push Done..'
+           }
+         }
     stage('Deploy') {
       steps {
         echo 'Next Deploy job run..'
