@@ -25,21 +25,20 @@ pipeline {
 //       }
 //     }
 
-    stage('Login') {
-          steps {
-            script {
-              // Login to Docker Hub using Jenkins global credentials
-              withCredentials([usernamePassword(
-                credentialsId: '0978ddcf-0186-4334-8520-b32a2e12a710', // Use the Global credentials ID
-                usernameVariable: 'DOCKERHUB_USERNAME',
-                passwordVariable: 'DOCKERHUB_PASSWORD'
-              )]) {
-                sh "echo $DOCKERHUB_PASSWORD"
-                sh "docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}"
-              }
-            }
-          }
-    }
+//     stage('Login') {
+//           steps {
+//             script {
+//               // Login to Docker Hub using Jenkins global credentials
+//               withCredentials([usernamePassword(
+//                 credentialsId: '0978ddcf-0186-4334-8520-b32a2e12a710', // Use the Global credentials ID
+//                 usernameVariable: 'DOCKERHUB_USERNAME',
+//                 passwordVariable: 'DOCKERHUB_PASSWORD'
+//               )]) {
+//                 sh "docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}"
+//               }
+//             }
+//           }
+//     }
     stage('Build docker') {
       steps {
         echo 'Building..'
