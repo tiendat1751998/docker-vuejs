@@ -58,7 +58,7 @@ pipeline {
          }
     stage('Deploy') {
       steps {
-        echo 'Next Deploy job run..'
+        echo 'Next Deploy job run.'
       }
     }
 
