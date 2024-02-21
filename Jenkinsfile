@@ -30,7 +30,7 @@ pipeline {
             script {
               // Login to Docker Hub using Jenkins global credentials
               withCredentials([usernamePassword(
-                credentialsId: 'repo', // Use the Global credentials ID
+                credentialsId: '0978ddcf-0186-4334-8520-b32a2e12a710', // Use the Global credentials ID
                 usernameVariable: 'DOCKERHUB_USERNAME',
                 passwordVariable: 'DOCKERHUB_PASSWORD'
               )]) {
