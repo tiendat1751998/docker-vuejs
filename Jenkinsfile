@@ -13,17 +13,11 @@ pipeline {
         sh 'npm install'
       }
     }
-//  stage('download inconfy') {
-//           steps {
-//             sh 'npm rebuild node-sass'
-//           }
-//         }
     stage('Check lint') {
       steps {
         sh 'npm run lint'
       }
     }
-
 
     stage('Build') {
       steps {
@@ -31,25 +25,19 @@ pipeline {
       }
     }
 
-//     stage('build icon') {
-//       steps {
-//         sh 'npm run build:icons -- --headless --url http://10.10.10.5'
-//       }
-//     }
-
-stage('Login') {
-      steps {
-        script {
-          // Login to Docker Hub using Jenkins global credentials
-          withCredentials([usernamePassword(
-            credentialsId: 'repo', // Use the Global credentials ID
-            usernameVariable: 'DOCKERHUB_USERNAME',
-            passwordVariable: 'DOCKERHUB_PASSWORD'
-          )]) {
-            sh "docker login https://hub.docker.com/ -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}"
+    stage('Login') {
+          steps {
+            script {
+              // Login to Docker Hub using Jenkins global credentials
+              withCredentials([usernamePassword(
+                credentialsId: 'repo', // Use the Global credentials ID
+                usernameVariable: 'DOCKERHUB_USERNAME',
+                passwordVariable: 'DOCKERHUB_PASSWORD'
+              )]) {
+                sh "docker login https://hub.docker.com/ -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}"
+              }
+            }
           }
-        }
-      }
     }
     stage('Build') {
       steps {
@@ -64,5 +52,6 @@ stage('Login') {
         echo 'Next Deploy job run..'
       }
     }
+
   }
 }
