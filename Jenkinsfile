@@ -35,7 +35,7 @@ pipeline {
                 usernameVariable: 'DOCKERHUB_USERNAME',
                 passwordVariable: 'DOCKERHUB_PASSWORD'
               )]) {
-                sh "sudo docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}"
+                sh "docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}"
               }
             }
           }
@@ -43,7 +43,7 @@ pipeline {
     stage('Build docker') {
       steps {
         echo 'Building..'
-        sh "sudo docker build -t ${DOCKER_IMAGE} --security-opt=seccomp=unconfined -f ${DOCKER_FILE} ."
+        sh "docker build -t ${DOCKER_IMAGE} --security-opt=seccomp=unconfined -f ${DOCKER_FILE} ."
 
         echo 'Build Done..'
       }
@@ -51,7 +51,7 @@ pipeline {
     stage('push docker') {
            steps {
              echo 'push..'
-             sh "sudo docker push ${DOCKER_IMAGE}"
+             sh "docker push ${DOCKER_IMAGE}"
 
              echo 'push Done..'
            }
