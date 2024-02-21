@@ -64,6 +64,5 @@ stage('Login') {
         echo 'Next Deploy job run..'
       }
     }
-
   }
 }
