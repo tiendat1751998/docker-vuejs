@@ -8,24 +8,31 @@ pipeline {
 
     }
   stages {
-
-    stage('download dependencies') {
+//
+//     stage('download dependencies') {
+//       steps {
+//         sh 'npm install'
+//       }
+//     }
+//     stage('Check lint') {
+//       steps {
+//         sh 'npm run lint'
+//       }
+//     }
+//
+//     stage('Build') {
+//       steps {
+//         sh 'npm run build'
+//       }
+//     }
+    stage('Build docker') {
       steps {
-        sh 'npm install'
+        echo 'Building..'
+        sh "docker build -t ${DOCKER_IMAGE} -f ${DOCKER_FILE} ."
+
+        echo 'Build Done....'
       }
     }
-    stage('Check lint') {
-      steps {
-        sh 'npm run lint'
-      }
-    }
-
-    stage('Build') {
-      steps {
-        sh 'npm run build'
-      }
-    }
-
     stage('Login') {
           steps {
             script {
@@ -40,14 +47,7 @@ pipeline {
             }
           }
     }
-    stage('Build docker') {
-      steps {
-        echo 'Building..'
-        sh "docker build -t ${DOCKER_IMAGE} -f ${DOCKER_FILE} ."
 
-        echo 'Build Done..'
-      }
-    }
     stage('push docker') {
            steps {
              echo 'push..'
