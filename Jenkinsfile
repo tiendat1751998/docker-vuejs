@@ -64,7 +64,7 @@ pipeline {
             sh 'docker stop vuejs-admin'
             sh 'docker rm vuejs-admin'
             sh 'docker compose -f ${DOCKER_COMPOSE} up -d'
-            echo "connected "
+            echo "connected.. "
             }
           }
 //     stage('Deploy') {
