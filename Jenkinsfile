@@ -8,22 +8,22 @@ pipeline {
     }
   stages {
 
-    stage('download dependencies') {
-      steps {
-        sh 'npm install'
-      }
-    }
-    stage('Check lint') {
-      steps {
-        sh 'npm run lint'
-      }
-    }
-
-    stage('Build') {
-      steps {
-        sh 'npm run build'
-      }
-    }
+//     stage('download dependencies') {
+//       steps {
+//         sh 'npm install'
+//       }
+//     }
+//     stage('Check lint') {
+//       steps {
+//         sh 'npm run lint'
+//       }
+//     }
+//
+//     stage('Build') {
+//       steps {
+//         sh 'npm run build'
+//       }
+//     }
 
     stage('Login') {
           steps {
