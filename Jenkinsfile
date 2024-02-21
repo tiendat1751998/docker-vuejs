@@ -5,6 +5,7 @@ pipeline {
       DEPLOYMENT_NAME = 'vuejs-admin'
       DOCKER_IMAGE = "dotiendat1751998/vuejs-admin:1.1"
       DOCKER_FILE = './Dockerfile'
+      DOCKER_COMPOSE = './docker-compose-vue.yml'
 
     }
   stages {
@@ -51,14 +52,14 @@ pipeline {
     stage('push docker') {
            steps {
              echo 'push..'
-             sh "docker push ${DOCKER_IMAGE}"
-
+             sh 'docker push ${DOCKER_IMAGE}'
              echo 'push Done..'
            }
          }
     stage('Deploy') {
       steps {
         echo 'Next Deploy job run...'
+        sh 'docker compose -f ${DOCKER_COMPOSE} -H "ssh://root@10.10.10.5" up -d  '
       }
     }
 
