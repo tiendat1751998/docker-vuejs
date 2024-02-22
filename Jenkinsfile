@@ -2,7 +2,7 @@ pipeline {
   agent any
   tools {nodejs "nodejs"}
   environment {
-      TAG = '1.2'
+      TAG = '1.3'
       DEPLOYMENT_NAME = 'vuejs-admin'
       DOCKER_IMAGE = "dotiendat1751998/vuejs-admin:${TAG}"
       DOCKER_FILE = './Dockerfile'
