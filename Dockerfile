@@ -17,8 +17,8 @@ FROM node:16-alpine as build-stage
 WORKDIR /app
 COPY package*.json ./
 RUN npm install @iconify/iconify
-RUN npm audit fix --force
-RUN  npm i esbuild-linux-64
+RUN npm audit fix
+RUN npm i esbuild-linux-64
 RUN npm install @heroicons/vue
 RUN npm install -g npm@8.5.0
 RUN node -v
