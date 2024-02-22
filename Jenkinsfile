@@ -56,28 +56,5 @@ pipeline {
              echo 'push Done..'
            }
          }
-
-//     stage('Deploy') {
-//       steps {
-//         echo 'Next Deploy job run..'
-// //         sh 'docker compose -f ${DOCKER_COMPOSE} -H "ssh://root@10.10.10.5" up -d  '
-//          script {
-//               // Login to Docker Hub using Jenkins global credentials
-//               withCredentials([usernamePassword(
-//                 credentialsId: '4a2e4ceb-1dbe-42d2-aefc-bfc4a4415477', // Use the Global credentials ID
-//                 usernameVariable: 'USERSNAME',
-//                 passwordVariable: 'PASSWORD'
-//               )]) {
-//                 sh "ssh root@10.10.10.5"
-//                 sh 'docker stop vuejs-admin'
-//                 sh 'docker rm vuejs-admin'
-//                 sh 'docker compose -f ${DOCKER_COMPOSE} up -d'
-//                 echo "connected "
-//               }
-//             }
-//
-//       }
-//     }
-
   }
 }
