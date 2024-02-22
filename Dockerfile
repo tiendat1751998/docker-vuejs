@@ -13,7 +13,7 @@
 # COPY --from=builder /app/dist /usr/share/nginx/html
 
 # build stage
-FROM node:lts-alpine as build-stage
+FROM node16:lts-alpine as build-stage
 WORKDIR /app
 COPY package*.json ./
 RUN  npm i esbuild-linux-64
