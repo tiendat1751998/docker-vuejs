@@ -17,8 +17,8 @@ FROM node:16-alpine as build-stage
 WORKDIR /app
 COPY package*.json ./
 RUN  npm i esbuild-linux-64
-RUN npm install @iconify/icons-bundle
-RUN npm install -g npm@8.5.0
+RUN npm install iconify
+RUN npm install
 RUN node -v
 RUN npm -v
 COPY . .
