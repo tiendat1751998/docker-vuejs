@@ -1,5 +1,5 @@
 pipeline {
-  agent none
+  agent any
   tools {nodejs "nodejs"}
   environment {
       DEPLOYMENT_NAME = 'vuejs-admin'
