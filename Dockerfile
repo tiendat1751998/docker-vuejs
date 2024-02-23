@@ -2,7 +2,8 @@
 FROM node:16-alpine as build-stage
 WORKDIR /app
 COPY package*.json ./
-#RUN npm cache clean --force
+# if server cannot build at first build enable this to clear old cache
+RUN npm cache clean --force
 RUN npm i esbuild-linux-64
 RUN npm install -g npm@8.5.0
 COPY . .
