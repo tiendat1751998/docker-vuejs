@@ -15,5 +15,4 @@ FROM nginx:stable-alpine as production-stage
 #COPY my-site.key /etc/ssl/private/my-site.key
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 EXPOSE 80
-EXPOSE 443
 CMD ["nginx", "-g", "daemon off;"]
