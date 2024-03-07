@@ -80,7 +80,7 @@ const pricingPlans = [
     <p>Choose the best plan to fit your needs.</p>
   </div>
 
-  <!-- 👉 Annual and monthly price toggler -->
+  <!-- 👉 Annual and monthly price togglers -->
 
   <div class="d-flex align-center justify-center mx-auto my-10">
     <VLabel
