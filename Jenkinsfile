@@ -14,7 +14,7 @@ pipeline {
         echo 'Building..'
         sh "docker build -t ${DOCKER_IMAGE} -f ${DOCKER_FILE} ."
 
-        echo 'Build Done....'
+        echo 'Build Done...'
       }
     }
     stage('Login') {
