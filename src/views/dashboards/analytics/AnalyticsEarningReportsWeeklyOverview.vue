@@ -128,7 +128,7 @@ const moreList = [
   <VCard>
     <VCardItem class="pb-sm-0">
       <VCardTitle>Earning Reports</VCardTitle>
-      <VCardSubtitle>Weekly Earnings Overviews</VCardSubtitle>
+      <VCardSubtitle>Weekly Earnings Overview</VCardSubtitle>
 
       <template #append>
         <div class="mt-n4 me-n2">
