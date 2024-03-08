@@ -8,7 +8,7 @@ RUN npm install -g npm@8.5.0
 COPY . .
 RUN npm run build
 
-# production stages
+# production stage
 FROM nginx:stable-alpine as production-stage
 #COPY nginx.conf /etc/nginx/nginx.conf
 #COPY my-site.crt /etc/ssl/certs/my-site.crt
