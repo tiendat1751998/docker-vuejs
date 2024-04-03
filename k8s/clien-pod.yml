@@ -9,4 +9,4 @@ spec:
     - name: client
       image: dotiendat1751998/vuejs-admin
       ports:
-        - containerPort: 8088
+        - containerPort: 80
