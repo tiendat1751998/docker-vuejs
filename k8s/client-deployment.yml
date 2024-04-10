@@ -17,4 +17,3 @@ spec:
           image: dotiendat1751998/vuejs-admin
           ports:
             - containerPort: 3000
-
