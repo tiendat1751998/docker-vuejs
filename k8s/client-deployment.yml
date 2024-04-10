@@ -16,5 +16,5 @@ spec:
         - name: client
           image: dotiendat1751998/vuejs-admin
           ports:
-            - containerPort: 80
+            - containerPort: 3000
 
