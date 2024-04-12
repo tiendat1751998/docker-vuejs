@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
     - name: client
-      image: dotiendat1751998/vuejs-admin
+      image: dotiendat1751998/vuejs-admin:latest
       ports:
         - containerPort: 3000
