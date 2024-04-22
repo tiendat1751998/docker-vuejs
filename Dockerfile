@@ -15,4 +15,5 @@ COPY my-site.crt /etc/nginx/ssl/my-site.crt
 COPY my-site.key /etc/nginx/ssl/my-site.key
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 EXPOSE 80
+EXPOSE 443
 CMD ["nginx", "-g", "daemon off;"]
