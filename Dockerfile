@@ -10,9 +10,9 @@ RUN npm run build
 
 # production stages
 FROM nginx:stable-alpine as production-stage
-#COPY nginx.conf /etc/nginx/nginx.conf
-#COPY my-site.crt /etc/ssl/certs/my-site.crt
-#COPY my-site.key /etc/ssl/private/my-site.key
+COPY /nginx/nginx.conf /etc/nginx/nginx.conf
+COPY my-site.crt /etc/nginx/ssl/my-site.crt
+COPY my-site.key /etc/nginx/ssl/my-site.key
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 EXPOSE 3000
 CMD ["nginx", "-g", "daemon off;"]
