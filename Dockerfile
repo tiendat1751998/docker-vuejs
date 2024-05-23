@@ -13,7 +13,7 @@ RUN npm run build
 FROM nginx:stable-alpine as production-stage
 ENV TZ=Asia/Ho_Chi_Minh
 COPY /nginx/nginx.conf /etc/nginx/nginx.conf
-COPY my-site.crt /etc/nginx/ssl/my-site.crt
+COPY nginx-selfsigned.crt /etc/nginx/ssl/nginx-selfsigned.crt
 COPY my-site.key /etc/nginx/ssl/my-site.key
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 EXPOSE 80
