@@ -41,7 +41,13 @@
     "vue3-apexcharts": "1.4.1",
     "vue3-perfect-scrollbar": "1.6.1",
     "vuetify": "3.2.1",
-    "webfontloader": "1.6.28"
+    "webfontloader": "1.6.28",
+    "@vitejs/plugin-vue": "4.2.1",
+    "@vitejs/plugin-vue-jsx": "3.0.1",
+    "vite": "^4.5.2",
+    "vite-plugin-pages": "0.29.0",
+    "vite-plugin-vue-layouts": "0.8.0",
+    "vite-plugin-vuetify": "1.0.2"
   },
   "devDependencies": {
     "@antfu/eslint-config-vue": "0.38.5",
