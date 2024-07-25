@@ -6,7 +6,7 @@ ENV TZ=Asia/Ho_Chi_Minh
 RUN npm cache clean --force
 RUN npm i esbuild-linux-64
 RUN npm install -g npm@8.5.0
-#RUN tsc -b src/@iconify && node src/@iconify/build-icons.js
+RUN tsc -b src/@iconify && node src/@iconify/build-icons.js
 
 COPY . .
 RUN npm run build
