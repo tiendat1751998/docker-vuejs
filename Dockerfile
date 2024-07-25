@@ -8,7 +8,7 @@ RUN npm i esbuild-linux-64
 RUN npm install -g npm@8.5.0
 COPY . .
 RUN npm run build
-
+#
 # production stages
 FROM nginx:stable-alpine as production-stage
 ENV TZ=Asia/Ho_Chi_Minh
